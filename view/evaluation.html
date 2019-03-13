@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Honkling</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../lib/bootstrap-4/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="../lib/bootstrap-4/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" type="text/css" href="../lib/bootstrap-4/css/bootstrap.min.css">
+  <script type="text/javascript" src="../lib/meyda.js"></script>
+  <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../lib/tfjs/tf.min.js"></script>
+  <script type="text/javascript" src="../lib/math.min.js"></script>
+  <script src="../lib/visualizer.js/dist/visualizer.global.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center" id="navBarPlaceholder"></div>
+
+    <div class="row">
+      <div class="col">
+        <p id="progress" class="text-center">progress</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p id="statusBar" class="text-center">status</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p id="summary" class="text-center">summary</p>
+      </div>
+    </div>
+
+    <div id="personalizedBtnDiv" class="row">
+      <button id="startBtn" type="button" class="btn btn-primary col-centered">START</button>
+    </div>
+
+    <div id="footerPlaceholder"></div>
+  </div>
+  <script src="../common/baseController.js"></script>
+  <script src="../common/config.js"></script>
+  <script src="../common/util.js"></script>
+  <script src="../common/offlineAudioProcessor.js"></script>
+  <script src="../models/honkling/RES8_NARROW.js"></script>
+  <script src="../common/SpeechResModel.js"></script>
+  <script src="../personalization_eval/brandon.js"></script>
+  <script src="../personalization_eval/jay.js"></script>
+  <script src="../personalization_eval/max.js"></script>
+  <script src="../personalization_eval/jack.js"></script>
+  <script src="../controller/evaluationController.js"></script>
+</body>
+</html>

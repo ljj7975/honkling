@@ -135,7 +135,7 @@ class SpeechResModel {
 			metrics: ['accuracy'],
 		});
 
-		this.model.summary();
+		// this.model.summary();
 
 		let cached_weight = null;
 		if (typeof(Storage) !== "undefined" && modelName == "RES8_NARROW") {
@@ -274,6 +274,7 @@ class SpeechResModel {
 		if (x.length != batchSize) {
 			console.error('mismatching size of input. (X : ' + x.length + ', Y : ' + y.length + ')');
 		}
+		statusTag.html("Personalizing");
 		let dataSize = [batchSize].concat(this.config['input_shape']);
 
 		x = math.reshape(x, dataSize);
@@ -316,6 +317,8 @@ class SpeechResModel {
 		output = this.model.predict(batchX);
 		let personalizedPrediction = output.argMax(axis).dataSync();
 		result["personalizedAcc"] = calculateAccuracy(personalizedPrediction, y);
+
+        statusTag.html('');
 
 		console.log('true labels :', y);
 		console.log('basePrediction :', basePrediction);
