@@ -317,8 +317,7 @@ class SpeechResModel {
 		output = this.model.predict(batchX);
 		let personalizedPrediction = output.argMax(axis).dataSync();
 		result["personalizedAcc"] = calculateAccuracy(personalizedPrediction, y);
-
-        statusTag.html('');
+		statusTag.html('');
 
 		console.log('true labels :', y);
 		console.log('basePrediction :', basePrediction);
