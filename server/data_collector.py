@@ -37,6 +37,11 @@ class DataCollector:
                 "99% confidence interval" : list(stats.norm.interval(0.99, loc=mean, scale=CI_scale)),
             }
 
+            if len(self.collection) <= 1:
+                self.summary["90% confidence interval"] = [mean, mean];
+                self.summary["95% confidence interval"] = [mean, mean];
+                self.summary["99% confidence interval"] = [mean, mean];
+
         if self.sigfig is not None:
             for key in list(self.summary.keys()):
                 if type(self.summary[key]) is list:

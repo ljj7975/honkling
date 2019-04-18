@@ -12,7 +12,7 @@ HOST_NAME = '0.0.0.0'
 # ENV = "DEV"
 # ENV = "EVAL"
 ENV = "PROD"
-DATA_DIR_PATH = '../data/speech_commands'
+DATA_DIR_PATH = '/data/speech_commands'
 UNKNOWN_KEYWORD = 'unknown'
 SILENCE_KEYWORD = 'silence'
 noise_prob = 0.8
@@ -312,6 +312,7 @@ if __name__ == '__main__':
     val_size = 3091
     if ENV == "DEV":
         val_size = 20
+        random.seed(10)
     elif ENV == "PROD":
         val_size = 50
 
