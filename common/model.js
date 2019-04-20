@@ -5,13 +5,25 @@ function predict(x, model, commands) {
 	let input_shape = model.config['input_shape'].slice();
 	input_shape.unshift(-1);
 
-	let output = model.predict(x.reshape(input_shape));
+	let output = model.predict(x.reshape(input_shape)).dataSync();
 
-	maxProb = output.max(axis = 1).dataSync()[0];
+	printData("output", output)
+	//
+	// maxProb = output.max(axis = 1).dataSync()[0];
+	// let index = commands.indexOf("unknown");
+	// if (maxProb > predictionThreshold) {
+	// 	index = output.argMax(axis).dataSync()[0];
+	// }
+
 	let index = commands.indexOf("unknown");
-	if (maxProb > predictionThreshold) {
-		index = output.argMax(axis).dataSync()[0];
-	}
+  let max_prob = 0;
+  for (let i = 0; i < commands.length; i++) {
+    if (output[i] > max_prob) {
+      index = i;
+      max_prob = output[i];
+    }
+  }
+  console.log(commands[index]);
 
 	return commands[index];
 }
